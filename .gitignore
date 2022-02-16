@@ -1,6 +1,24 @@
+#dependencies
 node_modules
+
+# local logs
 *.log
+
+# production
 .nuxt
 nuxt.d.ts
 .output
+/build
 .env
+
+# linting
+.eslintcache
+
+# testing
+/coverage
+
+# just in case npm install is run accidentally
+package-lock.json
+
+# misc
+.DS_Store

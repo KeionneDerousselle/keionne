@@ -1,0 +1,22 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Dist generate
+dist
+coverage
+static
+public/
+
+# IDE
+.idea
+
+# Mocks
+**/__mocks__/**
+**/__snapshots__/**
+
+.vscode/
+.husky/
+.github/
