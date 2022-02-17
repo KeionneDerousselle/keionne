@@ -23,6 +23,13 @@ module.exports = {
 
   moduleFileExtensions: ['vue', 'js', 'ts'],
 
+  moduleNameMapper: {
+    '\\.module\\.(css|scss)$': 'identity-obj-proxy',
+    '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js',
+    '^@/components(.*)$': '<rootDir>/components$1',
+    '^@/pages(.*)$': '<rootDir>/pages$1',
+  },
+
   preset: 'ts-jest',
 
   testEnvironment: 'jsdom',

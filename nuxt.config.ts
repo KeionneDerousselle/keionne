@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css'],
   build: {
     postcss: {
-      postcssOptions: require('./postcss.config.js'),
+      postcssOptions: require('./postcss.config'),
     },
   },
 })

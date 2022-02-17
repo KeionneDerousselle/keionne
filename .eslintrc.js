@@ -14,12 +14,13 @@ module.exports = {
     parser: '@typescript-eslint/parser',
   },
   extends: [
-    'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:import/typescript',
+    'plugin:jest/recommended',
     'plugin:nuxt/recommended',
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   plugins: ['@typescript-eslint', 'import', 'jest'],
   rules: {
@@ -36,19 +37,13 @@ module.exports = {
         json: 'never',
         ts: 'never',
         tsx: 'never',
-        vue: 'never',
         '': 'never',
       },
     ],
     'import/no-extraneous-dependencies': 'off',
+    'import/no-unresolved': 'error',
     'import/prefer-default-export': 'off',
     'no-console': ['error', { allow: ['warn', 'error'] }],
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: ['..', '~'],
-      },
-    ],
     'no-shadow': 'off',
     'no-undef': 'off',
     'no-unused-expressions': 'off',
@@ -70,12 +65,13 @@ module.exports = {
   },
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.vue'],
+      '@typescript-eslint/parser': ['.ts'],
     },
 
     'import/resolver': {
       node: {
-        extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.json', '.vue'],
+        paths: ['.'],
+        extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.json'],
       },
       typescript: {
         alwaysTryTypes: true,
