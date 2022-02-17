@@ -12,7 +12,9 @@
     "prettier:write": "prettier --write .",
     "lint:fix": "yarn lint --fix",
     "lint": "run-p lint:js prettier:write",
-    "test": "jest"
+    "test": "jest",
+    "precommit": "yarn lint-staged",
+    "postinstall": "node ./node_modules/husky/lib/bin install"
   },
   "devDependencies": {
     "@babel/core": "^7.17.4",
@@ -32,7 +34,9 @@
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.4.1",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
+    "lint-staged": "^12.3.4",
     "npm-run-all": "^4.1.5",
     "nuxt3": "latest",
     "postcss": "^8.4.6",
@@ -41,5 +45,12 @@
     "ts-jest": "^27.1.3",
     "typescript": "^4.5.5",
     "vue-tsc": "^0.31.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "yarn lint:fix",
+      "prettier --write"
+    ],
+    "*.{scss,css,md}": "prettier --write"
   }
 }
