@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import AboutMe from '@/components/AboutMe.vue'
-console.log(AboutMe)
+import AboutMe from '@/components/organisms/AboutMe/index'
 </script>
 
 <template>
