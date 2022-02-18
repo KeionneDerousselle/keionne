@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Section from '@/components/molecules/Section/index.vue'
+import Button from '@/components/atoms/Button/index.vue'
 </script>
 
 <template>
@@ -18,6 +19,11 @@ import Section from '@/components/molecules/Section/index.vue'
             My name is Keionne Derousselle. I am a hardworking full stack engineer, who loves technology. Eager to learn
             new things, I am constantly honing my craft. Delivering quality products is what drives me to create.
           </p>
+          <div class="mt-8 flex justify-center items-center">
+            <Button href="/assets/downloads/Keionne_Derousselle_Resume.pdf" download class="text-white"
+              >Download CV</Button
+            >
+          </div>
         </div>
       </div>
     </div>
