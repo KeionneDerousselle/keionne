@@ -4,6 +4,6 @@ import AboutMe from '@/components/organisms/AboutMe/index.vue'
 
 <template>
   <div>
-    <AboutMe></AboutMe>
+    <AboutMe id="about" />
   </div>
 </template>

@@ -3,7 +3,7 @@ import Section from '@/components/molecules/Section/index.vue'
 </script>
 
 <template>
-  <Section id="about" title="About Me" class="about">
+  <Section title="About Me" class="about">
     <div class="flex flex-wrap">
       <div class="about__avatar">
         <div>

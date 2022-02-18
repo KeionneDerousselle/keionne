@@ -1,9 +1,18 @@
-import { mount } from '@vue/test-utils'
+import { mount, VueWrapper } from '@vue/test-utils'
 import Home from '@/pages/index.vue'
 
 describe('Home', () => {
-  it('renders the home page', () => {
-    const wrapper = mount(Home)
-    expect(wrapper.text()).toContain('Hello, World!!!')
+  let wrapper: VueWrapper<InstanceType<typeof Home>>
+
+  beforeAll(() => {
+    wrapper = mount(Home)
+  })
+
+  afterAll(() => {
+    wrapper.unmount()
+  })
+
+  it('renders the about section', () => {
+    expect(wrapper.get('#about').isVisible()).toBe(true)
   })
 })
