@@ -58,7 +58,7 @@ module.exports = {
     'vue/multi-word-component-names': [
       'error',
       {
-        ignores: ['index'],
+        ignores: ['index', 'default'],
       },
     ],
     'vue/script-setup-no-uses-vars': 'off',
