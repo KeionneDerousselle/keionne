@@ -92,3 +92,5 @@ sw.*
 
 # just in case npm install is run accidentally
 package-lock.json
+
+.netlify
