@@ -4,46 +4,30 @@ module.exports = {
     browser: true,
     node: true,
     es2021: true,
-  },
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: 'module',
-    parser: '@typescript-eslint/parser',
+    jest: true,
+    'jest/globals': true,
   },
   extends: [
-    'plugin:@typescript-eslint/recommended',
+    '@nuxtjs/eslint-config-typescript',
     'plugin:nuxt/recommended',
-    'plugin:vue/vue3-recommended',
+    'plugin:tailwind/recommended',
     'plugin:prettier/recommended',
+    'plugin:jest/recommended',
   ],
-  plugins: ['@typescript-eslint'],
+  plugins: ['jest'],
+  // add your custom rules here
   rules: {
-    'vue/script-setup-no-uses-vars': 'off',
-    'vue/multi-word-component-names': [
-      'error',
-      {
-        ignores: ['index'],
-      },
-    ],
-    'no-unused-expressions': 'off',
-    'no-console': ['error', { allow: ['warn', 'error'] }],
     'prettier/prettier': [
       'error',
       {
         endOfLine: 'auto',
       },
     ],
-  },
-  settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts'],
-    },
-
-    'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true,
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index', 'default'],
       },
-    },
+    ],
   },
 }

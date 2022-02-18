@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import AboutMe from '@/components/organisms/AboutMe/index.vue'
+</script>
+
 <template>
-  <h1 class="text-3xl font-bold underline text-blue-500">Hello, World!!!</h1>
+  <div>
+    <AboutMe id="about" />
+  </div>
 </template>
