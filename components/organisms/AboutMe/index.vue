@@ -1,10 +1,23 @@
 <script setup lang="ts">
+import { useNuxtApp, useAsyncData } from '#app'
 import Section from '@/components/molecules/Section/index.vue'
-import Button from '@/components/atoms/Button/index.vue'
+import ButtonLink from '@/components/atoms/ButtonLink/index.vue'
+
+interface AboutMeProps {
+  title: string
+  blurbTitle: string
+  blurbDescription: string
+  ctaLabel: string
+}
+
+const { $contentful } = useNuxtApp()
+const { client, entries } = $contentful()
+const { data } = await useAsyncData('about me', () => client.getEntry(entries.ABOUT_ME))
+const { title, blurbTitle, blurbDescription, ctaLabel } = data.value.fields as AboutMeProps
 </script>
 
 <template>
-  <Section title="About Me" class="about">
+  <Section :title="title" class="about">
     <div class="flex flex-wrap">
       <div class="about__avatar">
         <div>
@@ -14,14 +27,18 @@ import Button from '@/components/atoms/Button/index.vue'
 
       <div class="about__speech-bubble">
         <div class="about__speech-bubble__content">
-          <h3 class="font-semibold text-2xl text-purple-600 mb-4">Hi there!</h3>
-          <p class="text-purple-500">
-            My name is Keionne Derousselle. I am a hardworking full stack engineer, who loves technology. Eager to learn
-            new things, I am constantly honing my craft. Delivering quality products is what drives me to create.
+          <h3 class="about__speech-bubble__content__title font-semibold text-2xl text-purple-600 mb-4">
+            {{ blurbTitle }}
+          </h3>
+          <p class="about__speech-bubble__content__description text-purple-500">
+            {{ blurbDescription }}
           </p>
           <div class="mt-8 flex justify-center items-center">
-            <Button href="/assets/downloads/Keionne_Derousselle_Resume.pdf" download class="text-white"
-              >Download CV</Button
+            <ButtonLink
+              href="/assets/downloads/Keionne_Derousselle_Resume.pdf"
+              download
+              class="about__cta text-white"
+              >{{ ctaLabel }}</ButtonLink
             >
           </div>
         </div>
