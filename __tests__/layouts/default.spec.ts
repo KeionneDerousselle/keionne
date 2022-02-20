@@ -1,5 +1,5 @@
 import { mount, VueWrapper } from '@vue/test-utils'
-import DefaultLayout from './default.vue'
+import DefaultLayout from '../layouts/default.vue'
 
 describe('Default Layout', () => {
   let wrapper: VueWrapper<InstanceType<typeof DefaultLayout>>

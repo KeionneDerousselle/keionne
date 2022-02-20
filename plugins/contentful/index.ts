@@ -1,5 +1,8 @@
-import { createClient } from 'contentful'
 import { defineNuxtPlugin, useRuntimeConfig } from '#app'
+import * as contentful from 'contentful'
+
+// eslint-disable-next-line import/namespace
+const { createClient } = contentful.default
 
 export const contentfulPlugin = () => {
   const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_ABOUT_ME_ENTRY_ID } = useRuntimeConfig()

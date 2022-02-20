@@ -16,7 +16,6 @@ defineProps({
 
 const emit = defineEmits<{
   (e: 'click', value: MouseEvent): void
-  (e: 'update', value: string): void
 }>()
 </script>
 
