@@ -50,7 +50,16 @@ describe('About Me', () => {
     const useAsyncDataMock = App.useAsyncData as jest.Mock
     useAsyncDataMock.mockImplementation((_, fn) => fn())
 
-    wrapper = mount(AboutMe)
+    wrapper = mount({
+      template: `<Suspense><AboutMe /></Suspense>`,
+      components: {
+        AboutMe,
+      },
+    })
+  })
+
+  afterAll(() => {
+    wrapper.unmount()
   })
 
   it('renders the about me page title', () => {
@@ -70,6 +79,6 @@ describe('About Me', () => {
 
     expect(cvDownloadLink.text()).toContain(ctaLabel)
     expect(cvDownloadLink.attributes('href')).toBe('/assets/downloads/Keionne_Derousselle_Resume.pdf')
-    expect(cvDownloadLink.attributes('download')).toBe(true)
+    expect(cvDownloadLink.attributes('download')).toBe('')
   })
 })

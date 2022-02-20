@@ -30,7 +30,9 @@ const { title, blurbTitle, blurbDescription, ctaLabel } = data.value.fields as A
           <h3 class="about__speech-bubble__content__title font-semibold text-2xl text-purple-600 mb-4">
             {{ blurbTitle }}
           </h3>
-          <p class="about__speech-bubble__content__description text-purple-500">{{ blurbDescription }}</p>
+          <p class="about__speech-bubble__content__description text-purple-500">
+            {{ blurbDescription }}
+          </p>
           <div class="mt-8 flex justify-center items-center">
             <ButtonLink
               href="/assets/downloads/Keionne_Derousselle_Resume.pdf"
