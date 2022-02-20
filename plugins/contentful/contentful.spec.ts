@@ -1,8 +1,8 @@
-import * as Contentful from 'contentful'
+import * as Contentful from 'contentful/dist/es-modules/contentful'
 import * as App from '#app'
 import { contentfulPlugin } from './index'
 
-jest.mock('contentful', () => ({
+jest.mock('contentful/dist/es-modules/contentful', () => ({
   createClient: jest.fn(),
 }))
 
