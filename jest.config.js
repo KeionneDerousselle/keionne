@@ -1,4 +1,14 @@
 module.exports = {
+  globals: {
+    'vue-jest': {
+      babelConfig: true,
+    },
+
+    'ts-jest': {
+      tsconfig: 'tsconfig.json',
+    },
+  },
+
   collectCoverage: true,
 
   collectCoverageFrom: [
@@ -6,8 +16,8 @@ module.exports = {
     '<rootDir>/layouts/**/*.vue',
     '<rootDir>/middleware/**/*.vue',
     '<rootDir>/pages/**/*.vue',
-    '<rootDir>/plugins/**/*.js',
-    '<rootDir>/store/**/*.js',
+    '<rootDir>/plugins/**/*.ts',
+    '<rootDir>/store/**/*.ts',
     '!**/node_modules/**',
     '!**/vendor/**',
   ],
@@ -21,13 +31,16 @@ module.exports = {
     },
   },
 
-  moduleFileExtensions: ['vue', 'js', 'ts'],
+  moduleFileExtensions: ['vue', 'js', 'ts', 'mjs'],
 
   moduleNameMapper: {
     '\\.module\\.(css|scss)$': 'identity-obj-proxy',
     '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js',
-    '^@/components(.*)$': '<rootDir>/components$1',
-    '^@/pages(.*)$': '<rootDir>/pages$1',
+    '#app': '<rootDir>/node_modules/nuxt3/dist/app/index.mjs',
+    '#imports': '<rootDir>/node_modules/nuxt3/dist/pages/runtime/composables.mjs',
+    '#meta': '<rootDir>/node_modules/nuxt3/dist/meta/runtime/index.mjs',
+    '^@/(.*)$': '<rootDir>/$1',
+    '^~/(.*)$': '<rootDir>/$1',
   },
 
   preset: 'ts-jest',
@@ -40,5 +53,8 @@ module.exports = {
     '^.+\\.vue$': '@vue/vue3-jest',
     '^.+\\js$': 'babel-jest',
     '^.+\\.ts$': 'ts-jest',
+    '.*\\.(mjs)$': 'babel-jest',
   },
+
+  transformIgnorePatterns: ['node_modules/(?!@nuxt)/'],
 }

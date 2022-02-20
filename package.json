@@ -66,5 +66,8 @@
     "last 2 versions",
     "firefox ESR",
     "ie 11"
-  ]
+  ],
+  "dependencies": {
+    "contentful": "^9.1.10"
+  }
 }

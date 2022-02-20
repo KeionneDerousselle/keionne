@@ -9,6 +9,12 @@ on:
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
+    env:
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+      CONTENTFUL_ABOUT_ME_ENTRY_ID: ${{ secrets.CONTENTFUL_ABOUT_ME_ENTRY_ID }}
 
     strategy:
       matrix:
@@ -40,16 +46,19 @@ jobs:
         run: yarn
 
       - name: Build 🔨
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: netlify build --context deploy-preview
+        run: netlify build --context production
 
       - name: Run linter 👀
         run: yarn lint
 
       - name: Run tests 🧪
         run: yarn test
+
+      - name: Set env vars
+        run: |
+          netlify env:set CONTENTFUL_SPACE_ID $CONTENTFUL_SPACE_ID
+          netlify env:set CONTENTFUL_ACCESS_TOKEN $CONTENTFUL_ACCESS_TOKEN
+          netlify env:set CONTENTFUL_ABOUT_ME_ENTRY_ID $CONTENTFUL_ABOUT_ME_ENTRY_ID
 
       - name: Preview Deploy 🚀
         env:

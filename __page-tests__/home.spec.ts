@@ -1,11 +1,11 @@
-import { mount, VueWrapper } from '@vue/test-utils'
+import { shallowMount, VueWrapper } from '@vue/test-utils'
 import Home from '@/pages/index.vue'
 
 describe('Home', () => {
   let wrapper: VueWrapper<InstanceType<typeof Home>>
 
   beforeAll(() => {
-    wrapper = mount(Home)
+    wrapper = shallowMount(Home)
   })
 
   afterAll(() => {

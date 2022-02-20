@@ -35,4 +35,9 @@ export default defineNuxtConfig({
       postcssOptions: require('./postcss.config'),
     },
   },
+  publicRuntimeConfig: {
+    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
+    CONTENTFUL_ABOUT_ME_ENTRY_ID: process.env.CONTENTFUL_ABOUT_ME_ENTRY_ID,
+  },
 })
