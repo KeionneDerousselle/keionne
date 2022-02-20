@@ -46,7 +46,7 @@ jobs:
         run: yarn
 
       - name: Build 🔨
-        run: netlify build --context production
+        run: netlify build --context deploy-preview
 
       - name: Run linter 👀
         run: yarn lint
