@@ -68,6 +68,6 @@
     "ie 11"
   ],
   "dependencies": {
-    "contentful": "^9.1.10"
+    "contentful": "^9.2.11"
   }
 }
